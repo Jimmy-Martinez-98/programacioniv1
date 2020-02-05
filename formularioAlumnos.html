@@ -10,7 +10,11 @@
 <body>
     <center><P> Formulario de alumno</P></center>
     <form action="post">
-        <input pattern="[a-zA-Z" required type="text" placeholder="Nombre">
+       <center><input pattern="[a-zA-ZñÑ] {3,65} " required type="text" placeholder="Nombre"></center>
+       <br>
+       <center><input pattern="[a-zA-ZñÑ] {3,65] " required type="text" placeholder="Apellido"></center>
+       <br>
+       <center> <textarea pattern="[\w] {10,200}" required cols="50" rows="4" placeholder="Direccion...." ></textarea></center>
 
     </form>
     
