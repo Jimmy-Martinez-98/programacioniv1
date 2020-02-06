@@ -5,17 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Formulario de Alumno</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estiloformalumno.css">
 </head>
 <body>
-    <center><P> Formulario de alumno</P></center>
-    <form action="post">
-       <center><input pattern="[a-zA-ZñÑ] {3,65} " required type="text" placeholder="Nombre"></center>
+    <br>
+    <form action="">
+        <br>
+        <hl> Registro <span>de Aalumno</span></hl>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <br>
+        <label>*Nombre: </label><input pattern="[a-zA-ZñÑ] {3,65} " required type="text" placeholder="Nombre">
+        <br>
+       <label>*Apellido: </label> <input pattern="[a-zA-ZñÑ] {3,65] " required type="text" placeholder="Apellido">
        <br>
-       <center><input pattern="[a-zA-ZñÑ] {3,65] " required type="text" placeholder="Apellido"></center>
+       <label>*Codigo: </label> <input pattern="[a-zA-ZñÑ] {3,65] " required type="text" placeholder="Codigo">
        <br>
-       <center> <textarea pattern="[\w] {10,200}" required cols="50" rows="4" placeholder="Direccion...." ></textarea></center>
-
+       <label>*Direccion:</label> <br> <textarea pattern="[\w] {10,200}" required cols="50" rows="4" placeholder="Direccion...." ></textarea>
+       <br>
+       <br>
+       <label>*Telefono</label> <input pattern="[\w]" required type="text" placeholder="Telefono">
+       <br>
+       <label>*Correo: </label><input pattern="[\w]{10,100}" required type="email" placeholder="Correo electrinico">
+       <br>
+       <label>*Edad: </label> <input required type="number" placeholder="Edad"> 
+       <br> 
+       <label>*Sexo</label> <input pattern="[Masculino masculino MASCULINO FEMENINO femenino Femenino}" required type="text">
+       <br>
+       <label>*DUI (si es mayor de 18 años):</label> <input pattern="[\W]{10}"required type="text" placeholder="DUI">
+       <br>
+       <label>*NIT:</label><input pattern="[\w]" required type="text" placeholder="NIT">
+       <br>
+       <label>*Fecha de nacimiento</label> <input required type="date">
+       <br>
+       <center><input type="button" value="Guardar"></center>
+        <br>
+       <center><input type="button" value="Cancelar"></center>
+       <br>
     </form>
     
 </body>
