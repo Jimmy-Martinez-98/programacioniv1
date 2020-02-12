@@ -10,9 +10,30 @@
 <body>
     <p>App Alumnos offline</p>
     <br>
-    <form method="post">
-     
-       
+    <form method="post" id="frmalumno">
+
+        <div class="container">
+
+            <div class="fila">
+                <input type="text" pattern="[A-Z]{4}[0-9]{6}" required placeholder="Codigo" id="txtcodigoalumno">
+            </div>
+            <div class="fila">
+                <input type="text" pattern="[A-Za-zñÑ]{3,65}" required placeholder="Nombre" id="txtnombrealumno">
+            </div>
+            <div class="fila">
+                <input type="text" required placeholder="Direccion" id="txtdireccionalumno">
+            </div>
+            <div class="fila">
+                <input type="text" pattern="[0-9]{4}[0-9]{4}" required placeholder="Telefono" id="txttelefonoalumno">
+            </div>
+            <div>
+                <input type="submit" value="Guardar" id= "txtguardaralumno">
+            </div>
+        </div>
+      
 </form>
+
+<script> src="app.js"</script> 
+
 </body>
 </html>
