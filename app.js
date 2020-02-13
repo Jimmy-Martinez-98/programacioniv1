@@ -7,15 +7,25 @@ document.addEventListener("DOMContentLoaded", (event) =>{
             nombre = document.querySelector("#txtNombreAlumno").value,
             direccion = document.querySelector("#txtDireccionAlumno").value,
             telefono = document.querySelector("#txtTelefonoAlumno").value;
+
+            var keycodigo="codigo"+" "+codigo;
+            var keynombre="nombre"+" "+codigo;
+            var keydireccion="direccion"+" "+codigo;
+            var keytelefono="telefono"+" "+codigo;
+
+
         if( 'localStorage' in window ){
-            window.localStorage.setItem("codigo", codigo);
-            window.localStorage.setItem("nombre", nombre);
-            window.localStorage.setItem("direccion", direccion);
-            window.localStorage.setItem("telefono", telefono);
-            document.getElementById("txtCodigoAlumno").value="";
+            window.localStorage.setItem(keycodigo, codigo);
+            window.localStorage.setItem(keynombre, nombre);
+            window.localStorage.setItem(keydireccion, direccion);
+            window.localStorage.setItem(keytelefono, telefono);
+            
+
         } else {
             alert("almacenamiento en local NO soportado!!! Actualizate!");
         }
+        console.log(codigo,nombre,direccion,telefono);
+        
     });
     document.querySelector("#btnRecuperarAlumnos").addEventListener("click",(e)=>{
         if( 'localStorage' in window ){
