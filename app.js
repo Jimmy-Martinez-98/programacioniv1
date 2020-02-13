@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", (event) =>{
             window.localStorage.setItem("nombre", nombre);
             window.localStorage.setItem("direccion", direccion);
             window.localStorage.setItem("telefono", telefono);
+            document.getElementById("txtCodigoAlumno").value="";
         } else {
             alert("almacenamiento en local NO soportado!!! Actualizate!");
         }
