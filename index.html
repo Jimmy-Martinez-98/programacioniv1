@@ -5,36 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <title>Datos Estadisticos</title>
+    <title>Conversores</title>
 </head>
 <body>
     <form method="get" id="frmSaludo">
         <div class="container">
             <div class="row row-cols-2 p-2">
                 <div class="col text-center bg-success text-white">
-                    Estadistica
+                    SALUDO CON AJAX
                 </div>
             </div>
             <div class="row row-cols-4 p-2">
                 <div class="col text-center">
-                    <input id="txtDatos" class="form-control" type="text" placeholder="Datos" required="required" pattern="[0-9,]{1,}">
+                    <input id="txtNombre" class="form-control" type="text" placeholder="Nombre" required="required">
                 </div>
                 <div class="col text-center">
-                    <span class="text-center bg-primary text-white" id="lblSaludo">Respuesta...</span>
+                    <span class="text-center bg-primary text-white" id="lblSaludo">Saludando...</span>
                 </div>
             </div>
             <div class="row row-cols-2">
                 <div class="col text-center">
-                    <input type="submit" value="Moda" class="btn btn-primary">
-                    <input type="button" value="Mediana"  class="btn btn-primary" onclick="mediana()">
-                    <input type="button" value="Media" class="btn btn-primary" onclick="media()">
-                    <input type="button" value="Desviacion Estandar" class="btn btn-primary" onclick="desviacion_tipica()">
-                </div>
-            </div>
-            <div class="row row-cols-2 p-2">
-                <div class="col text-center">
-                    <input type="button" value="Varianza Muestral" class="btn btn-primary" onclick="Varinza_muestral()">
-                    <input type="button" value="Media Armonica" class="btn btn-primary" onclick="media_Armonica()">
+                    <input type="submit" value="Saludar" class="btn btn-primary">
                 </div>
             </div>
         </div>
