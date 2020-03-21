@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>APP ACADEMICA</title>
 </head>
-<body>
+<body class="bg-secondary">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">::.. APP ..::</a>
        
@@ -17,34 +17,33 @@
                     <a class="nav-link" href="#">INICIO <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Alumnos</a>
+                    <a class="nav-link mostrar-alumnos" data-modulo="alumnos" href="#">Alumnos</a>
                 </li> 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Docentes</a>
+                    <a class="nav-link mostrar-docentes" data-modulo="docentes" href="#">Docentes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Materias</a>
+                    <a class="nav-link mostrar-materias" data-modulo="materias" href="#">Materias</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Matricula</a>
+                    <a class="nav-link mostrar-matricula" data-modulo="matricula" href="#">Matricula</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Inscripcion</a>
+                    <a class="nav-link mostrar-inscripcion" data-modulo="inscripcion" href="#">Inscripcion</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Notas</a>
+                    <a class="nav-link mostrar-notas" data-modulo="notas" href="#">Notas</a>
                 </li>
             </ul>
         </div>
     </nav>
-    <div class="container bg-dark">
-        <div id="vistas-alumnos"></div>
-        <div id="vistas-docentes"></div>
-        <div id="vistas-materias"></div>
-        <div id="vistas-matricula"></div>
-        <div id="vistas-inscripcion"></div>
-        <div id="vistas-notas"></div>
-       
+    <div class="container">
+        <div id="vista-alumnos"></div>
+        <div id="vista-docentes"></div>
+        <div id="vista-materias"></div>
+        <div id="vista-matricula"></div>
+        <div id="vista-inscripcion"></div>
+        <div id="vista-notas"></div>
     </div>
     <script src="public/js/app.js"></script>
 </form>
