@@ -1,5 +1,5 @@
 var $ = el => document.querySelector(el),
-    frmAlumnos = $("#frmDocentes");
+    frmDocentes = $("#frmDocentes");
 frmAlumnos.addEventListener("submit",e=>{
     e.preventDefault();
     e.stopPropagation();
