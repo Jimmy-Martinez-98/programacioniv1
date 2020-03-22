@@ -1,4 +1,4 @@
-var $ = el => document.querySelector(el);
+var $ = elapp => document.querySelector(el);
 document.addEventListener("DOMContentLoaded",event=>{
     let mostrarVista = $("[class*='mostrar']");
     mostrarVista.addEventListener('click',e=>{
