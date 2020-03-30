@@ -1,9 +1,9 @@
-<form id="frmDocentes" method="post">
+<form data-accion="nuevo" data-iddocente='' id="frm-docentes" method="post">
     <div class="card text-white bg-dark mb-3" style="max-width: 24rem;">
         <div class="card-header">
             Mantenimiento Docentes
         
-            <button type="button" class="close" aria-label="Close">
+            <button type="button" id="btn-close-alumnos" class="close" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
@@ -34,29 +34,22 @@
             </div>
             <div class="row p-2">
                 <div class="col-4">
-                    TEL
+                    NIT
                 </div>
                 <div class="col-8">
-                    <input type="text" id="txtTelefonoDocente" placeholder="0000-0000" class="form-control">
-                </div>
-            </div>
-            <div class="row p-2">
-                <div class="col-4">
-                    DUI
-                </div>
-                <div class="col-8">
-                    <input type="text" id="txtDuiDocente" placeholder="000000000-0" class="form-control">
+                    <input type="text" id="txtNitDocente" placeholder="0000-0000" class="form-control">
                 </div>
             </div>
             <div class="row p-2"> 
                 <div class="col-12 text-center">
                     <input id="btnGuardarAlumnos" type="submit" class="btn btn-outline-primary text-white" value="Guardar">
                     <input type="reset" class="btn btn-outline-warning text-white" value="Limpiar">
+                    <input type="button" class="btn btn-outline-success mostrar-buscar-alumnos text-white" data-modulo="alumnos" data-form="buscar-alumnos" value="Buscar">
                 </div>
             </div>
             <div class="row p-2">
                 <div class="col-12 text-center">
-                    <div id="respuestaDocente"> </div>
+                    <div id="respuestaAlumno"> </div>
                 </div>
             </div>
         </div>
