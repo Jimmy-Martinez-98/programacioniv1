@@ -5,15 +5,15 @@ export function modulo(){
         e.preventDefault();
         e.stopPropagation();
         
-        let alumnos = {
+        let docentes = {
             accion    : frmAlumnos.dataset.accion,
             idDocente  : frmAlumnos.dataset.idDocente,
-            codigo    : $("#txtCodigoDocentes").value,
-            nombre    : $("#txtNombreDocentes").value,
-            direccion : $("#txtDireccionDocentes").value,
+            codigo    : $("#txtCodigoDocente").value,
+            nombre    : $("#txtNombreDocente").value,
+            direccion : $("#txtDireccionDocente").value,
             nit       : $("#txtNitDocente").value
         };
-        fetch(`private/Modulos/docentes/procesodoce.php?proceso=recibirDatos&alumno=${JSON.stringify(alumnos)}`).then( resp=>resp.json() ).then(resp=>{
+        fetch(`private/Modulos/docentes/procesodoce.php?proceso=recibirDatos&alumno=${JSON.stringify(docentes)}`).then( resp=>resp.json() ).then(resp=>{
             $("#respuestaAlumno").innerHTML = `
                 <div class="alert alert-success" role="alert">
                     ${resp.msg}

@@ -50,7 +50,7 @@ class alumno{
                         codigo     = "'. $this->datos['codigo'] .'",
                         nombre     = "'. $this->datos['nombre'] .'",
                         direccion  = "'. $this->datos['direccion'] .'",
-                        nit   = "'. $this->datos['nit'] .'"
+                        nit        = "'. $this->datos['nit'] .'"
                     WHERE idDocente = "'. $this->datos['idDocente'] .'"
                 ');
                 $this->respuesta['msg'] = 'Registro actualizado correctamente';
@@ -59,17 +59,17 @@ class alumno{
     }
     public function buscarAlumno($valor=''){
         $this->db->consultas('
-            select alumnos.idAlumno, alumnos.codigo, alumnos.nombre, alumnos.direccion, alumnos.telefono
-            from alumnos
-            where alumnos.codigo like "%'.$valor.'%" or alumnos.nombre like "%'.$valor.'%"
+            select docentes.codigo, docentes.nombre,docentes.nit
+            from docentes
+            where docentes.codigo like "%'.$valor.'%" or docentes.nombre like "%'.$valor.'%" or docentes.nit like "%' .$valor.'%"
         ');
         return $this->respuesta = $this->db->obtener_datos();
     }
     public function eliminarAlumno($idDocente=''){
         $this->db->consultas('
-            delete alumnos
-            from alumnos
-            where alumnos.idAlumno = "'.$idDocente.'"
+            delete docentes
+            from docentes
+            where docentes.idDocente = "'.$idDocente.'"
         ');
         $this->respuesta['msg'] = 'Registro eliminado correctamente';
     }
