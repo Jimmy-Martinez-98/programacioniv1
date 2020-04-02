@@ -22,13 +22,13 @@ class alumno{
     }
     private function validar_datos(){
         if( empty($this->datos['codigo']) ){
-            $this->respuesta['msg'] = 'por favor ingrese el codigo del estudiante';
+            $this->respuesta['msg'] = 'por favor ingrese el codigo del docente';
         }
         if( empty($this->datos['nombre']) ){
-            $this->respuesta['msg'] = 'por favor ingrese el nombre del estudiante';
+            $this->respuesta['msg'] = 'por favor ingrese el nombre del docente';
         }
-        if( empty($this->datos['direccion']) ){
-            $this->respuesta['msg'] = 'por favor ingrese la direccion del estudiante';
+        if( empty($this->datos['nit']) ){
+            $this->respuesta['msg'] = 'por favor ingrese el nit del docente';
         }
         $this->almacenar_alumno();
     }
@@ -46,7 +46,7 @@ class alumno{
                 $this->respuesta['msg'] = 'Registro insertado correctamente';
             } else if( $this->datos['accion']==='modificar' ){
                 $this->db->consultas('
-                   UPDATE alumnos SET
+                   UPDATE docentes SET
                         codigo     = "'. $this->datos['codigo'] .'",
                         nombre     = "'. $this->datos['nombre'] .'",
                         direccion  = "'. $this->datos['direccion'] .'",
@@ -59,9 +59,9 @@ class alumno{
     }
     public function buscarAlumno($valor=''){
         $this->db->consultas('
-            select docentes.codigo, docentes.nombre,docentes.nit
+            select docentes.idDocente, docentes.codigo, docentes.nombre, docentes.direccion, docentes.nit
             from docentes
-            where docentes.codigo like "%'.$valor.'%" or docentes.nombre like "%'.$valor.'%" or docentes.nit like "%' .$valor.'%"
+            where docentes.codigo like "%'.$valor.'%" or docentes.nombre like "%'.$valor.'%" or docentes.nit like"%'.$valor.'%"
         ');
         return $this->respuesta = $this->db->obtener_datos();
     }
@@ -69,7 +69,7 @@ class alumno{
         $this->db->consultas('
             delete docentes
             from docentes
-            where docentes.idDocente = "'.$idDocente.'"
+            where docentes.idDocente= "'.$idDocente.'"
         ');
         $this->respuesta['msg'] = 'Registro eliminado correctamente';
     }

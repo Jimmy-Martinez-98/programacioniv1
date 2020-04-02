@@ -1,28 +1,28 @@
 export function modulo(){
     var $ = el => document.querySelector(el),
-        frmAlumnos = $("#frm-docentes");
-    frmAlumnos.addEventListener("submit",e=>{
+        frmDocentes = $("#frm-docentes");
+    frmDocentes.addEventListener("submit",e=>{
         e.preventDefault();
         e.stopPropagation();
         
         let docentes = {
-            accion    : frmAlumnos.dataset.accion,
-            idDocente  : frmAlumnos.dataset.idDocente,
+            accion    : frmDocentes.dataset.accion,
+            idAlumno  : frmDocentes.dataset.iddocente,
             codigo    : $("#txtCodigoDocente").value,
             nombre    : $("#txtNombreDocente").value,
             direccion : $("#txtDireccionDocente").value,
             nit       : $("#txtNitDocente").value
         };
         fetch(`private/Modulos/docentes/procesodoce.php?proceso=recibirDatos&alumno=${JSON.stringify(docentes)}`).then( resp=>resp.json() ).then(resp=>{
-            $("#respuestaAlumno").innerHTML = `
+            $("#respuestaDocente").innerHTML = `
                 <div class="alert alert-success" role="alert">
                     ${resp.msg}
                 </div>
             `;
         });
     });
-    frmAlumnos.addEventListener("reset",e=>{
+    frmDocentes.addEventListener("reset",e=>{
         $("#frm-docentes").dataset.accion = 'nuevo';
-        $("#frm-docentes").dataset.idDocente = '';
+        $("#frm-docentes").dataset.iddocente = '';
     });
 }

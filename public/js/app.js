@@ -3,7 +3,7 @@ function init(){
         return el.match(/^#/) ? document.querySelector(el) : document.querySelectorAll(el);
     }
     let mostrarVista = $("[class*='mostrar']");
-    console.log( mostrarVista );
+   
     mostrarVista.forEach(element => {
         element.addEventListener('click',e=>{
             e.stopPropagation();
@@ -16,10 +16,12 @@ function init(){
                 let btnCerrar = $(`#btn-close-${form}`);
                 btnCerrar.addEventListener("click",event=>{
                     $(`#vista-${form}`).innerHTML = "";
+                    
                 });
                 import(`../vistas/${modulo}/${form}.js`).then(module=>{
                     module.modulo();
                 });
+                
                 init();
             }); 
         });

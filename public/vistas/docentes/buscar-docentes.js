@@ -5,38 +5,38 @@ export function modulo(){
         traerDatos(frmBuscarAlumnos.value);
     });
     let modificarAlumno = (alumno)=>{
-        $("#frm-alumnos").dataset.accion = 'modificar';
-        $("#frm-alumnos").dataset.idalumno = alumno.idAlumno;
-        $("#txtCodigoAlumno").value = alumno.codigo;
-        $("#txtNombreAlumno").value = alumno.nombre;
-        $("#txtDireccionAlumno").value = alumno.direccion;
-        $("#txtTelefonoAlumno").value = alumno.telefono;
+        $("#frm-docentess").dataset.accion = 'modificar';
+        $("#frm-docentes").dataset.iddocente = alumno.idDocente;
+        $("#txtCodigoDocente").value = alumno.codigo;
+        $("#txtNombreDocente").value = alumno.nombre;
+        $("#txtDireccionDocente").value = alumno.direccion;
+        $("#txtNitDocente").value = alumno.nit;
     };
-    let eliminarAlumno = (idAlumno)=>{
-        fetch(`private/Modulos/alumnos/procesos.php?proceso=eliminarAlumno&alumno=${idAlumno}`).then(resp=>resp.json()).then(resp=>{
+    let eliminarAlumno = (idDocente)=>{
+        fetch(`private/Modulos/docentes/procesodoce.php?proceso=eliminarAlumno&alumno=${idDocente}`).then(resp=>resp.json()).then(resp=>{
             traerDatos('');
         });
     };
     let traerDatos = (valor)=>{
-        fetch(`private/Modulos/alumnos/procesos.php?proceso=buscarAlumno&alumno=${valor}`).then(resp=>resp.json()).then(resp=>{
+        fetch(`private/Modulos/docentes/procesodoce.php?proceso=buscarAlumno&alumno=${valor}`).then(resp=>resp.json()).then(resp=>{
             let filas = '';
             resp.forEach(alumno => {
                 filas += `
-                    <tr data-idalumno='${alumno.idAlumno}' data-alumno='${JSON.stringify(alumno)}'>
+                    <tr data-iddocente='${alumno.idDocente}' data-docente='${JSON.stringify(alumno)}'>
                         <td>${alumno.codigo}</td>
                         <td>${alumno.nombre}</td>
                         <td>${alumno.direccion}</td>
-                        <td>${alumno.telefono}</td>
+                        <td>${alumno.nit}</td>
                         <td>
                             <input type="button" class="btn btn-outline-danger text-white" value="del">
                         </td>
                     </tr>
                 `;
             });
-            $("#tbl-buscar-alumnos > tbody").innerHTML = filas;
-            $("#tbl-buscar-alumnos > tbody").addEventListener("click",e=>{
+            $("#tbl-buscar-docentes > tbody").innerHTML = filas;
+            $("#tbl-buscar-docentes > tbody").addEventListener("click",e=>{
                 if( e.srcElement.parentNode.dataset.alumno==null ){
-                    eliminarAlumno( e.srcElement.parentNode.parentNode.dataset.idalumno );
+                    eliminarAlumno( e.srcElement.parentNode.parentNode.dataset.iddocente );
                 } else {
                     modificarAlumno( JSON.parse(e.srcElement.parentNode.dataset.alumno) );
                 }
