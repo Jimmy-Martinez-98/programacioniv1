@@ -5,7 +5,7 @@ export function modulo(){
         traerDatos(frmBuscarAlumnos.value);
     });
     let modificarAlumno = (alumno)=>{
-        $("#frm-docentess").dataset.accion = 'modificar';
+        $("#frm-docentes").dataset.accion = 'modificar';
         $("#frm-docentes").dataset.iddocente = alumno.idDocente;
         $("#txtCodigoDocente").value = alumno.codigo;
         $("#txtNombreDocente").value = alumno.nombre;
@@ -22,7 +22,7 @@ export function modulo(){
             let filas = '';
             resp.forEach(alumno => {
                 filas += `
-                    <tr data-iddocente='${alumno.idDocente}' data-docente='${JSON.stringify(alumno)}'>
+                    <tr data-iddocente='${alumno.idDocente}' data-alumno='${JSON.stringify(alumno)}'>
                         <td>${alumno.codigo}</td>
                         <td>${alumno.nombre}</td>
                         <td>${alumno.direccion}</td>

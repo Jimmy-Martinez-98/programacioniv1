@@ -7,7 +7,7 @@ export function modulo(){
         
         let docentes = {
             accion    : frmDocentes.dataset.accion,
-            idAlumno  : frmDocentes.dataset.iddocente,
+            idDocente : frmDocentes.dataset.iddocente,
             codigo    : $("#txtCodigoDocente").value,
             nombre    : $("#txtNombreDocente").value,
             direccion : $("#txtDireccionDocente").value,
