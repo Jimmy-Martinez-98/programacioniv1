@@ -6,7 +6,7 @@ var appBuscarDocentes = new Vue({
     },
     methods:{
         buscarDocente:function(){
-            fetch(`private/Modulos/docentes/procesodoce.php?proceso=buscarAlumno&docente=${this.valor}`).then(resp=>resp.json()).then(resp=>{
+            fetch(`private/Modulos/docentes/procesodoce.php?proceso=buscarAlumno&alumno=${this.valor}`).then(resp=>resp.json()).then(resp=>{
                 this.misdocentes = resp;
             });
         },
@@ -21,6 +21,6 @@ var appBuscarDocentes = new Vue({
         }
     },
     created:function(){
-        this.buscarDocente();
+        this.buscarAlumno();
     }
 });
