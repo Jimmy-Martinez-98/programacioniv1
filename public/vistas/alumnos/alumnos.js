@@ -21,7 +21,7 @@ var appalumno = new Vue({
                 this.alumno.direccion = '';
                 this.alumno.telefono = '';
                 this.alumno.accion = 'nuevo';
-                appBuscarAlumnos.buscarAlumno();
+                appBuscarAlumnos.buscarAlumno()
             });
         }
     }
