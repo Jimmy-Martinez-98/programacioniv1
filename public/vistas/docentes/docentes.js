@@ -22,7 +22,7 @@ var appdocente = new Vue({
                 this.docente.direccion = '';
                 this.docente.nit = '';
                 this.docente.accion = 'nuevo';
-                appBuscarDocentes.buscarAlumno();
+                appBuscarDocentes.buscarDocente();
             });
         }
     }
