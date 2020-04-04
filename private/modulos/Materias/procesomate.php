@@ -22,13 +22,13 @@ class alumno{
     }
     private function validar_datos(){
         if( empty($this->datos['codigo']) ){
-            $this->respuesta['msg'] = 'por favor ingrese el codigo del docente';
+            $this->respuesta['msg'] = 'por favor ingrese el codigo de la materia';
         }
         if( empty($this->datos['nombre']) ){
-            $this->respuesta['msg'] = 'por favor ingrese el nombre del docente';
+            $this->respuesta['msg'] = 'por favor ingrese el nombre de la materia';
         }
-        if( empty($this->datos['nit']) ){
-            $this->respuesta['msg'] = 'por favor ingrese el nit del docente';
+        if( empty($this->datos['duracion']) ){
+            $this->respuesta['msg'] = 'por favor ingrese la duracion de la materia';
         }
         $this->almacenar_alumno();
     }
@@ -36,22 +36,20 @@ class alumno{
         if( $this->respuesta['msg']==='correcto' ){
             if( $this->datos['accion']==='nuevo' ){
                 $this->db->consultas('
-                    INSERT INTO docentes (codigo,nombre,direccion,nit) VALUES(
+                    INSERT INTO materias (codigo,nombre,duracion) VALUES(
                         "'. $this->datos['codigo'] .'",
                         "'. $this->datos['nombre'] .'",
-                        "'. $this->datos['direccion'] .'",
-                        "'. $this->datos['nit'] .'"
+                        "'. $this->datos['duracion'] .'"
                     )
                 ');
                 $this->respuesta['msg'] = 'Registro insertado correctamente';
             } else if( $this->datos['accion']==='modificar' ){
                 $this->db->consultas('
-                   UPDATE docentes SET
+                   UPDATE materias SET
                         codigo     = "'. $this->datos['codigo'] .'",
                         nombre     = "'. $this->datos['nombre'] .'",
-                        direccion  = "'. $this->datos['direccion'] .'",
-                        nit        = "'. $this->datos['nit'] .'"
-                    WHERE idDocente = "'. $this->datos['idDocente'] .'"
+                        duracion   = "'. $this->datos['duracion'] .'"
+                    WHERE idMateria = "'. $this->datos['idMateria'] .'"
                 ');
                 $this->respuesta['msg'] = 'Registro actualizado correctamente';
             }
@@ -59,17 +57,17 @@ class alumno{
     }
     public function buscarAlumno($valor=''){
         $this->db->consultas('
-            select docentes.idDocente, docentes.codigo, docentes.nombre, docentes.direccion, docentes.nit
-            from docentes
-            where docentes.codigo like "'.$valor.'%" or docentes.nombre like "'.$valor.'%" or docentes.nit like"'.$valor.'%"
+            select materias.idMateria, materias.codigo, materias.nombre, materias.duracion
+            from materias
+            where materias.codigo like "'.$valor.'%" or materias.nombre like "'.$valor.'%" or materias.duracion like"'.$valor.'%"
         ');
         return $this->respuesta = $this->db->obtener_datos();
     }
-    public function eliminarAlumno($idDocente=''){
+    public function eliminarAlumno($idMateria=''){
         $this->db->consultas('
-            delete docentes
-            from docentes
-            where docentes.idDocente= "'.$idDocente.'"
+            delete materias
+            from materias
+            where materias.idMateria = "'.$idMateria.'"
         ');
         $this->respuesta['msg'] = 'Registro eliminado correctamente';
     }
