@@ -15,9 +15,11 @@ var appBuscarAlumnos = new Vue({
             appalumno.alumno.accion = 'modificar';
         },
         eliminarAlumno:function(idAlumno){
+            var opcion = confirm("¿esta seguro que decea borrarlo");
+            if(opcion==true){
             fetch(`private/Modulos/alumnos/procesos.php?proceso=eliminarAlumno&alumno=${idAlumno}`).then(resp=>resp.json()).then(resp=>{
                 this.buscarAlumno();
-            });
+            });}
         }
     },
     created:function(){

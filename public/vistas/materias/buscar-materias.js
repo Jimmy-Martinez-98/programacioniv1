@@ -15,9 +15,11 @@ var appBuscarMaterias = new Vue({
             appmateria.materia.accion = 'modificar';
         },
         eliminarMateria:function(idMateria){
+            var opcion = confirm("¿esta seguro que decea borrarlo");
+            if(opcion==true){
             fetch(`private/Modulos/materias/procesomate.php?proceso=eliminarAlumno&alumno=${idMateria}`).then(resp=>resp.json()).then(resp=>{
                 this.buscarMateria();
-            });
+            });}
         }
     },
     created:function(){
