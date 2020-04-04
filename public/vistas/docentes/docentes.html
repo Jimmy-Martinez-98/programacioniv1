@@ -1,7 +1,7 @@
-<form data-accion="nuevo" data-iddocente='' id="frm-docentes" method="post">
+<form v-on:submit.prevent="guardarDocente" data-accion="nuevo" data-iddocente='' id="frm-docentes" method="post">
     <div class="card text-white bg-dark mb-3" style="max-width: 24rem;">
         <div class="card-header">
-            Mantenimiento Docentes
+            Mantenimiento Docente
         
             <button type="button" id="btn-close-docentes" class="close" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -13,7 +13,7 @@
                     CODIGO
                 </div>
                 <div class="col-6">
-                    <input type="text" id="txtCodigoDocente" placeholder="AAAA000000" class="form-control">
+                    <input type="text" v-model="docente.codigo" placeholder="AAAA000000" class="form-control">
                 </div>
             </div>
             <div class="row p-2">
@@ -21,7 +21,7 @@
                     NOMBRE
                 </div>
                 <div class="col-8">
-                    <input type="text" id="txtNombreDocente" placeholder="AAA AAA" class="form-control">
+                    <input type="text" v-model="docente.nombre" placeholder="AAA AAA" class="form-control">
                 </div>
             </div>
             <div class="row p-2">
@@ -29,7 +29,7 @@
                     DIRECCION
                 </div>
                 <div class="col-8">
-                    <input type="text" id="txtDireccionDocente" placeholder="AAA" class="form-control">
+                    <input type="text" v-model="docente.direccion" placeholder="AAA" class="form-control">
                 </div>
             </div>
             <div class="row p-2">
@@ -37,7 +37,7 @@
                     NIT
                 </div>
                 <div class="col-8">
-                    <input type="text" id="txtNitDocente" placeholder="0000-0000" class="form-control">
+                    <input type="text" v-model="docente.nit" placeholder="0000-0000" class="form-control">
                 </div>
             </div>
             <div class="row p-2"> 
@@ -49,9 +49,12 @@
             </div>
             <div class="row p-2">
                 <div class="col-12 text-center">
-                    <div id="respuestaDocente"> </div>
+                    <div class="alert alert-success" role="alert">
+                        {{ docente.msg }}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </form>
+<script src="public/vistas/docentes/docentes.js"></script>
