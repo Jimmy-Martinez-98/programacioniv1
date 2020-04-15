@@ -2,7 +2,7 @@
 <form v-on:submit.prevent="guardarDocente"  id="frm-login" method="post" >
     <div class="card text-dark bg-white mb-3" style="max-width: 24rem;">
         <div class="card-header">
-           <center>Iniciar sesion</center>
+           <center><i class="fas fa-user"></i> Iniciar sesion</center>
         </div>
         <div class="card-body">
             <div class="row p-2">
@@ -27,11 +27,13 @@
                     <br>
                     <br>
                     ¿No tienes cuenta?
-                    <input type="button" class="btn btn-outline-success mostrar-buscar-docentes text-dark" data-modulo="docentes" data-form="buscar-docentes" value="Registrarse">
+                    <input type="button" class="btn btn-outline-success mostrar-buscar-docentes text-dark" id="btnRegistrar" value="Registrarse">
                 </div>
             </div>
             <div class="row p-2">
             </div>
         </div>
     </div>
+    <div id="contenedor"></div>
+
 </form>

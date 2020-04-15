@@ -27,3 +27,16 @@ var appdocente = new Vue({
         }
     }
 });
+
+$(document).ready(function() {
+    //Obtienes el contenedor donde se va a poner el nuevo formulario
+    var contenedor = $("#contenedor");
+    //Obtienes el boton que acciona el agregado
+    var btnAddMore = $("#btnRegistrar");
+    //Adjuntas un evento click al boton add More
+    btnAddMore.click(function() {
+      //Agregas el contenido al contenedor cuando se realice el click al boton add more
+      contenedor.append(plantilla);
+  
+    });
+  });
