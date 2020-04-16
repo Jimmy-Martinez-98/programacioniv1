@@ -1,49 +1,45 @@
 <form method="POST" id="frm-registrar">
-    <div class="card text-white bg-dark mb-3" style="max-width: 48rem;">
-        <div class="car-header">
-            Registrate
-        </div>
-        <div class="card-body">
-            <div class="row p-2">
-                <div class="col-4">
-                    Nombre
-                </div>
-                <div class="col-8">
-                    <input type="text" v-model="" required pattern="[A-Za-zñÑ]{0,50}" placeholder="Nombre" class="form-control">
-                </div>
-            </div>
-            <div class="row p-2">
-                <div class="col-4">
-                    Apellido
-                </div>
-                <div class="col-8">
-                    <input type="text" v-model="" required pattern="[A-Za-zñÑ]{0,50}" placeholder="Apellido" class="form-control">
-                </div>
-            </div>
-            <div class="row p-2">
-                <div class="col-4">
-                    Correo
-                </div>
-                <div class="col-8">
-                    <input type="text" v-model="" required pattern="[A-Za-zñÑ]{0,50}" placeholder="Correo" class="form-control">
-                </div>
-            </div>
-            <div class="row p-2">
-                <div class="col-4">
-                    Contraseña
-                </div>
-                <div class="col-8">
-                    <input type="text" v-model="" required pattern="[A-Za-zñÑ]{0,50}" placeholder="Contraseña" class="form-control">
-                </div>
-            </div>
-            <div class="row p-2">
-                <div class="col-4">
-                    Direccion
-                </div>
-                <div class="col-8">
-                    <input type="text" v-model="" required pattern="[A-Za-zñÑ]{0,50}" placeholder="Direccion" class="form-control">
-                </div>
-            </div>
-        </div>
-    </div>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="public/vistas/login/login.css">
+	<div class="login-box container ml-5">
+	
+	<h1>REGISTRO</h1>
+	<div class="textbox">
+		<i class="fas fa-user"></i>
+		<input type="text" placeholder="Nombres" name="" value="">
+	</div>	
+	<div class="textbox">
+		<i class="fas fa-user"></i>
+		<input type="text" placeholder="Apellidos" name="" value="">
+	</div>	
+	<div class="textbox">
+		<i class="fas fa-at"></i>
+		<input type="text" placeholder="Correo" name="" value="">
+	</div>	
+
+	<div class="textbox">
+		<i class="fas fa-key"></i>
+		<input type="password" placeholder="password" name="" value="">
+	</div>
+	<div class="textbox">
+		<i class="far fa-address-card"></i>
+		<input type="text" placeholder="Direccion" name="" value="">
+	</div>
+		<div class="text-white">
+		<label for="">
+			<input type="checkbox"aria-label="Checkbox for following text input">
+			Cooperativa
+		</label>
+	
+	<label for="">
+		<input type="checkbox"aria-label="Checkbox for following text input"> 
+		Usuario
+	</label>
+</div>
+
+	
+	<input class="btn" type="button" name="" value="REGISTRO">
+	<input class="btn" type="button" name="" value="CANCELAR">
+</div>
+
 </form>
