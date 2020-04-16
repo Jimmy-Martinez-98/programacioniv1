@@ -24,6 +24,9 @@ $(document).ready(function () {
     $('#login').click(()=>{
         $(".contenedor").load("public/vistas/login/login.html")
     });
+    $('#btnRegistrar').click(()=>{
+        $(".contenedor").load("public/vistas/login/registrar.html")
+    });
 
  });
  function toggle(){
