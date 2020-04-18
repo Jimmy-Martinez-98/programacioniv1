@@ -1,5 +1,5 @@
 var app =new vue({
-	el:'#signupform',
+	el:'#registrobox',
 	data:{
 		usuario:{
 			idusuario	:	0,
@@ -13,18 +13,19 @@ var app =new vue({
 		}
 	},
 	method:{
-		guardarusuario:function(){
-		console.log("clicksubmit");
-		
-			fetch(`private/Modulos/usuarios/procesos.php?proceso=recibirDatos&usuario=${JSON.stringify(this.usuario)}`).then( resp=>resp.json() ).then(resp=>{
-				this.usuario.msg = resp.msg;
-				this.usuario.idusuario=0;
-				this.usuario.nombre='';
-				this.usuario.apellido='';
-				this.usuario.correo='';
-				this.usuario.password='';
-				this.usuairo.direccion='';
+		 guardarUsuario(){
+            fetch(`private/Modulos/alumnos/procesos.php?proceso=recibirDatos&alumno=${JSON.stringify(this.alumno)}`).then( resp=>resp.json() ).then(resp=>{
+                this.alumno.msg = resp.msg;
             });
+        },
+        limpiarUsuario(){
+            this.alumno.idAlumno=0;
+            this.alumno.accion="nuevo";
+            this.alumno.codigo="";
+            this.alumno.nombre="";
+            this.alumno.direccion="";
+            this.alumno.telefono="";
+            this.alumno.msg="";
 		}
 	}
 

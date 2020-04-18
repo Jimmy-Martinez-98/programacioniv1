@@ -99,7 +99,7 @@
             </div>
             <div class="modal-body"></div>
                   <!-- registro -->
-                  <div class="form-group " id="registrobox" v-on: submit.prevent="guardarUsuario" >
+                  <div class="form-group " id="registrobox" v-on:reset.prevent="limpiarUsuario" v-on:submit.prevent="guardarUsuario" >
                     <!-- nombre -->
                     <div class="form-group">
                       <label for="nombre" class="col-md-9 control-label text-white">Nombre</label>
