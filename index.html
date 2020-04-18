@@ -99,7 +99,7 @@
             </div>
             <div class="modal-body"></div>
                   <!-- registro -->
-                  <div class="form-group " id="registrobox" v-on:reset.prevent="limpiarUsuario" v-on:submit.prevent="guardarUsuario" >
+                  <div class="form-group" method="post" id="registrobox" v-on:reset.prevent="limpiarUsuario" v-on:submit.prevent="guardarUsuario" >
                     <!-- nombre -->
                     <div class="form-group">
                       <label for="nombre" class="col-md-9 control-label text-white">Nombre</label>
@@ -155,12 +155,19 @@
                               </div>
                               <input type="password" class="form-control" v-model="usuario.password" placeholder="****" aria-label="password" aria-describedby="basic-addon1">
                             </div>
-                           </div>  <!-- contra -->
+                           </div>  
+                           <div class="row p-2">
+                            <div class="col-12 text-center">
+                                <div class="alert alert-success" role="alert">
+                                    {{ usuario.msg }}
+                                </div>
+                            </div>
+                        </div><!-- contra -->
 
                 <!-- footer -->
             <div class="modal-footer" id="vues">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" v-on:click="iniciarsesion">Iniciar Sesion</button>
+            <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
             </div>  <!-- registro -->
 
 
