@@ -5,20 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!--css-->
-    <link rel="stylesheet" href="public/css/estilos.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="public/css/estilos.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
     <title>APP ACADEMICA</title>
 </head>
 <body class="bg-secondary">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark ui-btn-active  ui-state-persist" >
-        <a class="navbar-brand" href="#">::.. Logo Proyecto ..::</a>
-        <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="true" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="#">::.. comercializacion Horticola ..::</a>
+        <button class="navbar-toggler "id="toggles" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="true" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse " id="navbarNavAltMarkup ">
             <ul class="navbar-nav mr-auto ">
               <li class="nav-item">
-            <a class="nav-item nav-link " id="home" href="#" >Home <span class="sr-only"></span></a>
+            <a class="nav-item nav-link active " id="home" href="#" >Home <span class="sr-only"></span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link " id="verduras" href="#">Verduras</a>
@@ -27,12 +31,12 @@
             <a class="nav-link" id="frutos"  href="#">Frutos</a>
           </li>
           <li class="divicio">
-            <a class="nav-link mostrar-materias" data-modulo="materias" data-form="materias"  href="#">Legumbres</a>
+            <a class="nav-link " id="legumbres" href="#">Legumbres</a>
           </li>
         </ul>
         <ul class="navbar-nav">
           <li class="line">
-            <a class="nav-link" id="login" href="#"> <i class="fas fa-user"></i> Iniciar Sesion</a>
+            <a class="nav-link mostrar-docentes" id="login"data-toggle="modal" href="#loginmodal"> <i class="fas fa-user"></i> Iniciar Sesion</a>
           </li>
           <li class="line">
             <a class="nav-link mostrar-docentes" data-modulo="docentes" data-form="docentes" href="#"><i class="fas fa-shopping-cart"></i> Carrito</a>
@@ -41,20 +45,161 @@
          
         </div>
       </nav>
-    <main class="contenedor mt-5">
-     <h1>hini</h1>
-  </main>
+      <div class="container mt-2 ">
+    
+      </div>
+      
+      
+  <div class="modal fade " id="loginmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+	<div class="modal-dialog " role="document">
+	  <div class="modal-content bg-dark">
+		<div class="modal-header">
+		  <h5 class="modal-title text-white" id="exampleModalLongTitle">Inicio de sesion o Registro de usuario</h5>
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body">
+  <!-- login -->
+       <div class="form-group " id="loginbox" v-on:>
+                      <label for="correo" class="col-md-9 control-label text-white">Correo Electronico</label>
+                      <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="ejemplo@eje.com" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="password" class="col-md-9 control-label text-white">Contraseña</label>
+                    <div class="col-md-12">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
+                        </div>
+                        <input type="password" class="form-control" placeholder="****" aria-label="password" aria-describedby="basic-addon1">
+                      </div>
+                   </div>
+          <div class="modal-footer">
+            <a class="mr-auto"  data-dismiss="#loginmodal"  data-toggle="modal" href="#registromodal">Registrate aqui</a>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Iniciar Sesion</button>
+          </div> <!--logi-->
+        </div> <!--modalbody-->
+
+        <div class="modal fade " id="registromodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+          <div class="modal-dialog " role="document">
+            <div class="modal-content bg-dark">
+            <div class="modal-header">
+              <h5 class="modal-title text-white" id="exampleModalLongTitle">Inicio de sesion o Registro de usuario</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body"></div>
+                  <!-- registro -->
+                  <div class="form-group " id="registrobox" >
+                    <!-- nombre -->
+                    <div class="form-group">
+                      <label for="nombre" class="col-md-9 control-label text-white">Nombre</label>
+                      <div class="col-md-12">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                          </div>
+                          <input type="text" class="form-control" placeholder="Nombre" aria-label="nombre" aria-describedby="basic-addon1">
+                        </div>
+                       </div>  <!-- nombre -->
+                            <!-- apellido -->
+                            <div class="form-group">
+                              <label for="apellido" class="col-md-9 control-label text-white">Apellido</label>
+                              <div class="col-md-12">
+                                <div class="input-group mb-3">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                                  </div>
+                                  <input type="text" class="form-control" placeholder="Apellido" aria-label="password" aria-describedby="basic-addon1">
+                                </div>
+                               </div>
+                             <!-- apellido -->
+                             <!-- direccion -->
+                             <div class="form-group">
+                              <label for="direccion" class="col-md-9 control-label text-white">Direccion</label>
+                              <div class="col-md-12">
+                                <div class="input-group mb-3">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-address-book"></i></span>
+                                  </div>
+                                  <textarea class="form-control" aria-label="Direccion" placeholder="Direccion"></textarea>
+                                </div>
+                               </div>
+                             <!-- direccion -->
+                             <!-- correo -->
+                            <label for="correo" class="col-md-9 control-label text-white">Correo Electronico</label>
+                            <div class="col-md-12">
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="ejemplo@eje.com" aria-label="Username" aria-describedby="basic-addon1">
+                          </div>
+                        </div> <!-- correo -->
+                        <!-- contra -->
+                        <div class="form-group">
+                          <label for="password" class="col-md-9 control-label text-white">Contraseña</label>
+                          <div class="col-md-12">
+                            <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
+                              </div>
+                              <input type="password" class="form-control" placeholder="****" aria-label="password" aria-describedby="basic-addon1">
+                            </div>
+                           </div>  <!-- contra -->
+
+                <!-- footer -->
+            <div class="modal-footer" id="vues">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" v-on:click="iniciarsesion">Iniciar Sesion</button>
+            </div>  <!-- registro -->
 
 
-    <!--js librerias-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="public/js/jquery-ui.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="https://kit.fontawesome.com/58dc385e7a.js" crossorigin="anonymous"></script>
-    <!-- <script type="module" src="public/js/app.js"></script> -->
-    <script src="public/js/collapse.js"></script>
+           
+            </div>
+
+
+          <!-- registromodal -->
+
+
+
+
+
+
+
+
+
+          <!-- registromodal -->
+
+
+
+
+
+  
+    
+
+       
 
     
 </form>
+  <!--js librerias-->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+
+
+  <script src="public/js/jquery-ui.min.js"></script>
+    <script src="public/js/collapse.js"></script>
+    <script src="public/js/usuarios.js"></script>
 </body>
 </html>
