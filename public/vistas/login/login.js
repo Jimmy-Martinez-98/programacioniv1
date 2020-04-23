@@ -1,32 +1,20 @@
-var app =new vue({
-	el:'#signupform',
+var applogin = new Vue({
+	el:'#frm-login',
 	data:{
-		usuario:{
-			idusuario	:	0,
-			accion		: 	'nuevo',
-			nombre		:   '',
-			apellido	:	'',
-			correo		:	'',
-			password	:	'',
-			direccion	:	''
-
+		name:{
+			correo  	: '',
+			pass		:''
 		}
 	},
-	method:{
-		guardarusuario:function(){
-		console.log("clicksubmit");
-		
-			fetch(`private/Modulos/usuarios/procesos.php?proceso=recibirDatos&usuario=${JSON.stringify(this.usuario)}`).then( resp=>resp.json() ).then(resp=>{
-				this.usuario.msg = resp.msg;
-				this.usuario.idusuario=0;
-				this.usuario.nombre='';
-				this.usuario.apellido='';
-				this.usuario.correo='';
-				this.usuario.password='';
-				this.usuairo.direccion='';
+	methods:{
+		 inicioSesion:function(event){
+			fetch(`private/Modulos/usuarios/procesos.php?proceso=recibirDatos&login=${JSON.stringify(this.name)}`).then( resp=>resp.json() ).then(resp=>{
+			  this.name.correo="";
+			  this.name.pass="";
+              this.name.msg=resp.msg;
             });
-		}
+		 }
 	}
 
 
-});
+})
