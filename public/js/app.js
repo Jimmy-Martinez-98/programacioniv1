@@ -27,7 +27,7 @@ $(document).ready(function () {
     
     $('#newusuario').click(()=>{
       
-     $('.container').load("public/vistas/usuario/nuevousurario.html",function(data){
+     $('.container').load("public/vistas/usuario/registrar.html",function(data){
         $(this).html(data);
      });
     });
