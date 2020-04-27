@@ -1,28 +1,28 @@
-var appBuscarDocentes = new Vue({
-    el:'#frm-buscar-docentes',
+var appusuario = new Vue({
+    el:'#frm-registrar',
     data:{
-        misdocentes:[],
-        valor:''
-    },
-    methods:{
-        buscarDocente:function(){
-            fetch(`private/Modulos/docentes/procesodoce.php?proceso=buscarAlumno&alumno=${this.valor}`).then(resp=>resp.json()).then(resp=>{
-                this.misdocentes = resp;
-            });
-        },
-        modificarDocente:function(docente){
-            appdocente.docente = docente;
-            appdocente.docente.accion = 'modificar';
-        },
-        eliminarDocente:function(idDocente){
-            var opcion = confirm("¿esta seguro que decea borrarlo");
-            if(opcion==true){
-            fetch(`private/Modulos/docentes/procesodoce.php?proceso=eliminarAlumno&alumno=${idDocente}`).then(resp=>resp.json()).then(resp=>{
-                this.buscarDocente();
-            });}
+        usuario:{
+            idUsuario  : 0,
+            accion    : 'nuevo',
+            nombre    : '',
+            nombre    : '',
+            direccion : '',
+            telefono  : '',
+            msg       : ''
         }
     },
-    created:function(){
-        this.buscarDocente();
+    methods:{
+        registrarUsuario:function(){
+            fetch(`private/Modulos/alumnos/procesos.php?proceso=recibirDatos&alumno=${JSON.stringify(this.alumno)}`).then( resp=>resp.json() ).then(resp=>{
+                this.alumno.msg = resp.msg;
+                this.alumno.idAlumno = 0;
+                this.alumno.codigo = '';
+                this.alumno.nombre = '';
+                this.alumno.direccion = '';
+                this.alumno.telefono = '';
+                this.alumno.accion = 'nuevo';
+                appBuscarAlumnos.buscarAlumno();
+            });
+        }
     }
 });

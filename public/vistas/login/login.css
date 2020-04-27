@@ -1,0 +1,12 @@
+
+.footer{
+    display:flex;
+    flex-direction: column;
+}
+.flex{
+    display: flex;
+    justify-content: unsafe;
+    list-style-type: none;
+    text-decoration: none;
+
+}

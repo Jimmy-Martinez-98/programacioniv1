@@ -1,0 +1,28 @@
+.card{
+	display: flex;
+	align-items: center;
+	margin-top: 10%;
+	
+}
+
+
+@media(max-width: 500px){
+	.card{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height:20%;
+		order: 1;
+	
+	}
+	.form-row{
+		width: 20%;
+		margin: 2%;
+	}
+	.col-auto{
+		
+		margin: 7%;
+		
+	}
+  
+}

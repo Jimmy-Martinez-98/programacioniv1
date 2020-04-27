@@ -1,0 +1,46 @@
+<form v-on:submit.prevent="guardarproducto"  data-accion="nuevo" data-idproducto='' id="frm-producto" method="post" action="">
+	<div class="card d-flex justify-content-cemter ml-5">
+				<div class="card-header">
+				<h2>PRODUCTO</h2>
+				</div>
+			<div class="card-body">
+				<div class="form-group">
+					<label for="Producto">Producto</label>
+					<input type="text" v-model="producto.nombreprod" class="form-control" id="nproducto" aria-describedby="nameproduct" placeholder="Ingresa Nombre">
+					
+				  </div>
+
+				  <div class="form-group">
+					<label for="Producto">Precio</label>
+					<input type="text" class="form-control" v-model="producto.precio" id="precio" aria-describedby="nameproduct" placeholder="00.00">
+					
+				  </div>
+
+				  <div class="form-group">
+					<label for="descprod">Descripcion Producto</label>
+					<textarea class="form-control" v-model="producto.descprod" id="desprod" rows="3" placeholder="Ingresa Descripcion"></textarea>
+				  </div>
+				  <div class="form-group">
+					<label for="Producto">Tipo de Producto</label>
+					<input type="text" v-model="producto.tipohortaliza" class="form-control" id="tipo" aria-describedby="tipoprod" placeholder="Ingresa producto">
+					
+				  </div>
+
+				 
+				  
+			</div>		
+			<div class="card-footer">
+				<div class="d-flex col-mr-3">
+					<button  id="publicarprod	" type="submit"  class="btn btn-primary btn-lg btn-block text-white">Publicar</button>
+					
+					
+				  </div>
+				  <div class="text-center text-dark mt-3" role="alert">
+					{{producto.msg}}
+				</div>	
+			</div>
+		 </div>
+		
+		</div>
+		<script src="public/vistas/productos/publicproductos.js"></script>
+	</form>

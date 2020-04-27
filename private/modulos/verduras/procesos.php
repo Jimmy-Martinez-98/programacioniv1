@@ -1,6 +1,6 @@
 <?php 
 include('../../Config/Config.php');
-$alumno = new alumno($conexion);
+$alumno = new alumno($Conexion);
 
 $proceso = '';
 if( isset($_GET['proceso']) && strlen($_GET['proceso'])>0 ){
@@ -22,52 +22,47 @@ class alumno{
     }
     private function validar_datos(){
         if( empty($this->datos['codigo']) ){
-            $this->respuesta['msg'] = 'por favor ingrese el codigo de la materia';
+            $this->respuesta['msg'] = 'por favor ingrese ';
         }
         if( empty($this->datos['nombre']) ){
-            $this->respuesta['msg'] = 'por favor ingrese el nombre de la materia';
+            $this->respuesta['msg'] = 'por favor ingrese el nombre del estudiante';
         }
-        if( empty($this->datos['duracion']) ){
-            $this->respuesta['msg'] = 'por favor ingrese la duracion de la materia';
+        if( empty($this->datos['direccion']) ){
+            $this->respuesta['msg'] = 'por favor ingrese la direccion del estudiante';
         }
-        $this->almacenar_alumno();
+        $this->almacenar_usuario();
     }
-    private function almacenar_alumno(){
+    private function almacenar_usuario(){
         if( $this->respuesta['msg']==='correcto' ){
             if( $this->datos['accion']==='nuevo' ){
                 $this->db->consultas('
-                    INSERT INTO materias (codigo,nombre,duracion) VALUES(
+                    INSERT INTO producto (codigo,nombre,direccion,telefono) VALUES(
                         "'. $this->datos['codigo'] .'",
                         "'. $this->datos['nombre'] .'",
-                        "'. $this->datos['duracion'] .'"
+                        "'. $this->datos['direccion'] .'",
+                        "'. $this->datos['telefono'] .'"
                     )
                 ');
                 $this->respuesta['msg'] = 'Registro insertado correctamente';
             } else if( $this->datos['accion']==='modificar' ){
                 $this->db->consultas('
-                   UPDATE materias SET
+                   UPDATE alumnos SET
                         codigo     = "'. $this->datos['codigo'] .'",
                         nombre     = "'. $this->datos['nombre'] .'",
-                        duracion   = "'. $this->datos['duracion'] .'"
-                    WHERE idMateria = "'. $this->datos['idMateria'] .'"
+                        direccion  = "'. $this->datos['direccion'] .'",
+                        telefono   = "'. $this->datos['telefono'] .'"
+                    WHERE idAlumno = "'. $this->datos['idAlumno'] .'"
                 ');
                 $this->respuesta['msg'] = 'Registro actualizado correctamente';
             }
         }
     }
-    public function buscarAlumno($valor=''){
+   
+    public function eliminarAlumno($idAlumno=''){
         $this->db->consultas('
-            select materias.idMateria, materias.codigo, materias.nombre, materias.duracion
-            from materias
-            where materias.codigo like "'.$valor.'%" or materias.nombre like "'.$valor.'%" or materias.duracion like"'.$valor.'%"
-        ');
-        return $this->respuesta = $this->db->obtener_datos();
-    }
-    public function eliminarAlumno($idMateria=''){
-        $this->db->consultas('
-            delete materias
-            from materias
-            where materias.idMateria = "'.$idMateria.'"
+            delete alumnos
+            from alumnos
+            where alumnos.idAlumno = "'.$idAlumno.'"
         ');
         $this->respuesta['msg'] = 'Registro eliminado correctamente';
     }

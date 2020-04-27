@@ -13,23 +13,37 @@ class login{
     private $datos = array(), $db;
     public $respuesta = ['msg'=>"correcto"];
     
- 
-    public function recibirDatos($login){
-        $this->datos = json_decode($login, true);
-        $this->validar_datos();
-        $this->respuesta['msg']=$login;
-       }
+    public function __construct($db)
+    {
+        $this->db = $db;
+    }
 
-    private function validar_datos(){
+    public function recibirUsuario($login)
+    {
+        $this->datos = json_decode($login, true);
+        $this->validarUsuario();
        
-        if( empty($this->datos['correo']) ){
-            $this->respuesta['msg'] = 'por favor ingrese el correo';
+    }
+    private function validarUsuario()
+    {
+        if (empty($this->datos['correo']) || empty($this->datos['pass'])) {
+            $this->respuesta['msg'] = 'Correo o contraseña invalido';
+        } else {
+            $correo = $this->datos['correo'];
+            $contraseña = $this->datos['pass'];
+
+            $this->db->consultas('select usuario.correo, usuario.passwords from usuario where correo="' . $correo . '" and passwords="' . $contraseña . '" limit 1');
+            $this->respuesta['msg'] = $this->db->obtener_datos();
+            $usuario = $this->respuesta['msg'];
+
+            if (empty($this->respuesta['msg'])) {
+                $this->respuesta['msg'] = 'correo o contraseña incorrecto ';
+            } else {
+                return $this->respuesta['msg'] = 'Bienvenido';
+               
+            }
+           
         }
-		if( empty($this->datos['pass']) ){
-            $this->respuesta['msg'] = 'por favor ingrese la pass';
-        }
-      
-        
     }
 }
 ?>
