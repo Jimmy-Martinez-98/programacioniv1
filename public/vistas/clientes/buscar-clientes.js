@@ -11,8 +11,8 @@ var appBuscarAlumnos = new Vue({
             });
         },
         modificarAlumno:function(cliente){
-            misclientes.cliente = cliente;
-            misclientes.cliente.accion = 'modificar';
+            appcliente.cliente = cliente;
+            appcliente.cliente.accion = 'modificar';
         },
         eliminarAlumno:function(idCliente){
             var opcion = confirm("¿esta seguro que decea borrarlo");
