@@ -1,6 +1,6 @@
 Vue.component('v-select', VueSelect.VueSelect);
 
-var appmatriculas = new Vue({
+var appalquiler = new Vue({
     el:'#frm-alquiler',
     data:{
         alquiler:{
@@ -19,7 +19,7 @@ var appmatriculas = new Vue({
             valor : '',
             msg       : ''
         },
-        alquiler : {},
+        cliente : {},
         pelicula  : {}
     },
     methods:{

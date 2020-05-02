@@ -62,7 +62,7 @@ class matricula{
         }
         $this->db->consultas('
             select alquiler.idAlquiler, alquiler.idCliente, alquiler.idPelicula, 
-                date_format(alquiler.fechaPrestamo,"%d-%m-%Y") AS fechaPrestamo, alquiler.fechaPrestamo AS f, 
+                date_format(alquiler.fechaPrestamo,"%d-%m-%Y") AS fechaPrestamo, alquiler.fechaPrestamo AS f,alquiler.Devolucion, alquiler.valor
                 clientes.nombre, clientes.direccion, 
                 peliculas.sinopsis, peliculas.genero
             from alquiler
