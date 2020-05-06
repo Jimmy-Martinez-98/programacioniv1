@@ -1,28 +1,31 @@
-var appBuscarMaterias = new Vue({
-    el:'#frm-buscar-materias',
+var appbuscar_alquiler = new Vue({
+    el: '#frm-buscar-alquiler',
     data:{
-        mismaterias:[],
+        mis_alquiler:[],
         valor:''
     },
     methods:{
-        buscarMateria:function(){
-            fetch(`private/Modulos/materias/procesomate.php?proceso=buscarAlumno&alumno=${this.valor}`).then(resp=>resp.json()).then(resp=>{
-                this.mismaterias = resp;
+        buscarMatriculas(){
+            fetch(`private/Modulos/alquiler/procesos.php?proceso=buscarMatricula&matricula=${this.valor}`).then( resp=>resp.json() ).then(resp=>{ 
+                this.mis_alquiler = resp;
+                
             });
         },
-        modificarMateria:function(materia){
-            appmateria.materia = materia;
-            appmateria.materia.accion = 'modificar';
+        modificarMatricula(alquiler){
+            appalquiler.alquiler = alquiler;
+            appalquiler.alquiler.accion = 'modificar';
         },
-        eliminarMateria:function(idMateria){
-            var opcion = confirm("¿esta seguro que decea borrarlo");
+        eliminarMatricula(idAlquiler){
+            var opcion = confirm("¿esta seguro que desea borrarlo?");
             if(opcion==true){
-            fetch(`private/Modulos/materias/procesomate.php?proceso=eliminarAlumno&alumno=${idMateria}`).then(resp=>resp.json()).then(resp=>{
-                this.buscarMateria();
-            });}
+            fetch(`private/Modulos/alquiler/procesos.php?proceso=eliminarMatricula&matricula=${idAlquiler}`).then( resp=>resp.json() ).then(resp=>{
+                this.buscarMatriculas();
+            });
         }
+    }
+    
     },
-    created:function(){
-        this.buscarMateria();
+    created(){
+        this.buscarMatriculas();
     }
 });

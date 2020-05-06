@@ -15,7 +15,7 @@ var appBuscarAlumnos = new Vue({
             appcliente.cliente.accion = 'modificar';
         },
         eliminarAlumno:function(idCliente){
-            var opcion = confirm("¿esta seguro que decea borrarlo");
+            var opcion = confirm("¿esta seguro que desea borrarlo?");
             if(opcion==true){
             fetch(`private/Modulos/clientes/procesos.php?proceso=eliminarAlumno&alumno=${idCliente}`).then(resp=>resp.json()).then(resp=>{
                 this.buscarAlumno();

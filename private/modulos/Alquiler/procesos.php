@@ -38,7 +38,7 @@ class matricula{
                         "'. $this->datos['pelicula']['id'] .'",
                         "'. $this->datos['fechaPrestamo'] .'",
                         "'. $this->datos['fechaDevolucion'] .'",
-                        "'.$this->datos['valor'].'"
+                        "'. $this->datos['valor'].'"
                     )
                 ');
                 $this->respuesta['msg'] = 'Registro insertado correctamente';
@@ -49,7 +49,7 @@ class matricula{
                         idPelicula      = "'. $this->datos['pelicula']['id'] .'",
                         fechaPrestamo   = "'. $this->datos['fechaPrestamo'] .'",
                         fechaDevolucion = "'. $this->datos['fechaDevolucion'] .'",
-                        valor           = "'. $this->datos['valor'].'",
+                        valor           = "'. $this->datos['valor'].'"
                     WHERE idAlquiler = "'. $this->datos['idAlquiler'] .'"
                 ');
                 $this->respuesta['msg'] = 'Registro actualizado correctamente';
@@ -62,30 +62,30 @@ class matricula{
         }
         $this->db->consultas('
             select alquiler.idAlquiler, alquiler.idCliente, alquiler.idPelicula, 
-                date_format(alquiler.fechaPrestamo,"%d-%m-%Y") AS fechaPrestamo, alquiler.fechaPrestamo AS f,alquiler.Devolucion, alquiler.valor
+                date_format(alquiler.fechaPrestamo,"%d-%m-%Y") AS fechaPrestamo, alquiler.fechaPrestamo AS f,alquiler.fechaDevolucion, alquiler.valor,
                 clientes.nombre, clientes.direccion, 
                 peliculas.sinopsis, peliculas.genero
             from alquiler
                 inner join clientes on(clientes.idCliente=alquiler.idCliente)
-                inner join pelicula on(pelicula.idPelicula=alquiler.idPelicula)
+                inner join peliculas on(peliculas.idPelicula=alquiler.idPelicula)
             where clientes.nombre like "%'. $valor .'%" or 
-                pelicula.genero like "%'. $valor .'%" or 
+                peliculas.sinopsis like "%'. $valor .'%" or 
                 alquiler.fechaPrestamo like "%'. $valor .'%"
         ');
-        $matriculas = $this->respuesta = $this->db->obtener_data();
-        foreach ($matriculas as $key => $value) {
+        $alquiler = $this->respuesta = $this->db->obtener_datos();
+        foreach ($alquiler as $key => $value) {
             $datos[] = [
                 'idAlquiler' => $value['idAlquiler'],
-                'cliente'      => [
+                'clientes'      => [
                     'id'      => $value['idCliente'],
                     'label'   => $value['nombre']
                 ],
-                'pelicula'      => [
+                'peliculas'    => [
                     'id'      => $value['idPelicula'],
                     'label'   => $value['sinopsis']
                 ],
                 'fechaPrestamo'       => $value['f'],
-                'f'         => $value['fechaPrestamo'],
+                'f'           => $value['fechaPrestamo'],
                 'fechaDevolucion' => $value['fechaDevolucion'],
                 'valor' => $value['valor']
 
@@ -108,9 +108,9 @@ class matricula{
     }
     public function eliminarMatricula($idMatricula = 0){
         $this->db->consultas('
-            DELETE matriculas
-            FROM matriculas
-            WHERE matriculas.idMatricula="'.$idMatricula.'"
+            DELETE alquiler
+            FROM alquiler
+            WHERE alquiler.idAlquiler="'.$idMatricula.'"
         ');
         return $this->respuesta['msg'] = 'Registro eliminado correctamente';;
     }
